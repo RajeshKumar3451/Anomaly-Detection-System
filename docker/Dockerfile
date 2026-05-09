@@ -13,6 +13,9 @@ RUN python -m pip install --upgrade pip && \
 
 COPY . .
 
+# Create pipeline during build
+RUN python -m src.models.train_ml
+
 EXPOSE 8000
 
 CMD ["sh", "-c", "uvicorn api.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
