@@ -1,7 +1,7 @@
 import os
 import logging
 import joblib
-import pandas as pd
+import numpy as np
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
@@ -73,20 +73,18 @@ def map_risk(score: float):
 def predict(data: UserInput):
 
     try:
-        df = pd.DataFrame([{
-            "typing_speed": data.typing_speed,
-            "mouse_speed": data.mouse_speed,
-            "click_rate": data.click_rate,
-            "session_time": data.session_time,
+        values = np.array([[
+        data.typing_speed,
+        data.mouse_speed,
+        data.click_rate,
+        data.session_time,
+        0.0,  # typing_variance
+        0.0   # click_diff
+    ]])
 
-            
-            "typing_variance": 0.0,
-            "click_diff": 0.0
-        }])
+        pred = pipeline.predict(values)[0]
 
-        pred = pipeline.predict(df)[0]
-
-        score = pipeline.decision_function(df)[0]
+        score = pipeline.decision_function(values)[0]
 
         
         prediction = "Anomaly" if pred == -1 else "Normal"

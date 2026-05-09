@@ -1,4 +1,4 @@
-FROM python:3.10
+FROM python:3.10-bullseye
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
@@ -8,11 +8,10 @@ WORKDIR /app
 
 COPY requirements-api.txt .
 
-RUN pip install --no-cache-dir --prefer-binary -r requirements-api.txt
+RUN python -m pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements-api.txt
 
 COPY . .
-
-RUN python -m src.models.train_ml
 
 EXPOSE 8000
 
