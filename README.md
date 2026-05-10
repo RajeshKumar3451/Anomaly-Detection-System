@@ -1,211 +1,272 @@
-# 🧠 Behavioral Anomaly Detection System 🚀
+# 🛡️ AnomalyGuard AI
 
-### ML + Deep Learning + Real-Time API + Dashboard + Docker
+## Behavioral Fraud Intelligence Platform
 
----
-
-## 🔥 Overview
-
-This project builds an **end-to-end Behavioral Anomaly Detection System** that analyzes user interaction patterns (typing speed, mouse movement, click behavior, session dynamics) to detect **fraudulent or bot-like activity in real time**.
-
-It combines **Machine Learning, Deep Learning, and MLOps practices** to simulate a real-world fraud detection system.
+AI-powered behavioral anomaly detection system for identifying suspicious user activity using Machine Learning, FastAPI, Docker, and Streamlit.
 
 ---
 
-## 🎯 Problem Statement
+# 🔥 Live Demo
 
-Traditional authentication methods (passwords, OTPs) fail to detect:
+## 🌐 Fraud Intelligence Dashboard
+https://anomalyguard-console.onrender.com
 
-* Bot activity
-* Account takeovers
-* Behavioral anomalies
-
-👉 This system introduces **behavioral biometrics** to continuously validate user authenticity.
+## ⚡ FastAPI Swagger Docs
+https://anomalyguard-ai.onrender.com/docs
 
 ---
 
-## 💡 Solution
+# 📌 Project Overview
 
-We model user interaction behavior and detect anomalies using:
+AnomalyGuard AI is a production-grade behavioral anomaly detection platform designed to detect suspicious user behavior patterns using machine learning.
 
-* 🤖 **Isolation Forest (ML)** → Detect rare abnormal patterns
-* 🧠 **Autoencoder (DL)** → Reconstruction-based anomaly detection
-* ⚡ **FastAPI** → Real-time prediction service
-* 📊 **Streamlit Dashboard** → Interactive visualization
-* 🐳 **Docker** → Production-ready deployment
+The system analyzes:
+- Typing speed
+- Mouse movement behavior
+- Click frequency
+- Session duration
+- Behavioral deviations
 
----
-
-## 🏗️ Architecture
-
-```
-User Behavior Data 
-        ↓
-Feature Engineering (Behavioral + Temporal)
-        ↓
-ML/DL Models (Isolation Forest + Autoencoder)
-        ↓
-FastAPI (Real-Time Inference)
-        ↓
-Streamlit Dashboard (Visualization)
-```
+to generate:
+- anomaly scores
+- fraud risk levels
+- risk intelligence insights
 
 ---
 
-## 📊 Key Insights (EDA)
+# 🏗️ System Architecture
 
-* Behavioral features strongly differentiate normal vs anomalous users
-
-* Anomalies show:
-
-  * Higher typing speed
-  * Higher mouse velocity
-  * Increased click frequency
-  * Shorter session durations
-
-* Statistical tests confirm **significant differences (p < 0.05)**
-
-* PCA reveals **clear clustering of anomalies**
-
-* Risk scoring aligns with anomalous behavior
-
----
-
-## ⚙️ Tech Stack
-
-| Layer         | Tools                           |
-| ------------- | ------------------------------- |
-| Data          | Pandas, NumPy                   |
-| ML            | Scikit-learn (Isolation Forest) |
-| DL            | PyTorch (Autoencoder)           |
-| API           | FastAPI                         |
-| Dashboard     | Streamlit                       |
-| Visualization | Matplotlib, Seaborn             |
-| Deployment    | Docker                          |
-| EDA           | Statistical Testing, PCA        |
-
----
-
-## 🚀 Features
-
-* ✅ Real-time anomaly detection
-* ✅ Behavioral feature engineering
-* ✅ Deep learning-based anomaly scoring
-* ✅ Risk scoring system
-* ✅ Interactive dashboard
-* ✅ Dockerized deployment
-* ✅ Production-style architecture
-
----
-
-## 📸 Demo (Add Screenshots Here)
-
-* 📊 Dashboard UI
-* 📈 PCA Visualization
-* 🚨 Risk Score Distribution
-* ⚡ FastAPI `/docs` endpoint
-
----
-
-## 🔍 Explainability
-
-Used **SHAP (SHapley Additive exPlanations)** to interpret model predictions and identify key behavioral features contributing to anomalies.
-
----
-
-## 📉 Deep Learning Insights
-
-Autoencoder detects anomalies using **reconstruction error**:
-
-* Normal behavior → Low error
-* Anomalous behavior → High error
-
----
-
-## 🧪 How to Run
-
-### 1️⃣ Clone Repo
-
-```
-git clone https://github.com/your-username/behavioral-anomaly-detection.git
-cd behavioral-anomaly-detection
-```
-
-### 2️⃣ Install Dependencies
-
-```
-pip install -r requirements.txt
-```
-
-### 3️⃣ Run API
-
-```
-uvicorn api.main:app --reload
-```
-
-### 4️⃣ Run Dashboard
-
-```
-streamlit run dashboard/app.py
+```text
+                   ┌──────────────────────┐
+                   │  Streamlit Dashboard │
+                   │  Fraud Intelligence  │
+                   └─────────┬────────────┘
+                             │
+                             ▼
+                   ┌────────────────────┐
+                   │ FastAPI Inference  │
+                   │ Behavioral API     │
+                   └─────────┬──────────┘
+                             │
+                             ▼
+                   ┌────────────────────┐
+                   │ ML Pipeline        │
+                   │ Isolation Forest   │
+                   └─────────┬──────────┘
+                             │
+                             ▼
+                   ┌──────────────────────┐
+                   │ Risk Scoring         │
+                   │ Fraud Classification │
+                   └──────────────────────┘
 ```
 
 ---
 
-## 🐳 Docker Deployment
+# 🚀 Tech Stack
 
-```
-docker build -t anomaly-app -f docker/Dockerfile .
-docker run -p 8000:8000 anomaly-app
+| Category | Technologies |
+|---|---|
+| Machine Learning | Scikit-learn, Isolation Forest |
+| Backend API | FastAPI |
+| Frontend Dashboard | Streamlit |
+| Visualization | Plotly |
+| Containerization | Docker |
+| Deployment | Render |
+| Language | Python |
+| Data Processing | Pandas, NumPy |
+
+---
+
+# 🧠 ML Pipeline
+
+## Behavioral Features
+
+- Typing Speed
+- Mouse Speed
+- Click Rate
+- Session Duration
+- Typing Variance
+- Click Pattern Difference
+
+---
+
+## Anomaly Detection Model
+
+```python
+IsolationForest(contamination=0.1)
 ```
 
 ---
 
-## 📡 API Example
+## Risk Scoring Logic
 
-**POST /predict**
+| Score Range | Risk Level |
+|---|---|
+| Low | Legitimate behavior |
+| Medium | Suspicious behavior |
+| High | Potential fraud |
 
-```
+---
+
+# 📊 Dashboard Features
+
+✅ Real-time fraud prediction  
+✅ Behavioral analytics visualization  
+✅ Risk meter gauge  
+✅ Threat intelligence panel  
+✅ Session anomaly monitoring  
+✅ Live API integration  
+✅ Interactive fraud simulator  
+
+---
+
+# ⚡ API Example
+
+## POST `/predict`
+
+### Request
+
+```json
 {
   "typing_speed": 220,
-  "mouse_speed": 120,
+  "mouse_speed": 110,
   "click_rate": 6,
-  "session_time": 300
+  "session_time": 350
 }
 ```
 
 ---
 
-## 📈 Results
+### Response
 
-* Successfully identifies anomalous sessions
-* Demonstrates strong separation between normal and fraudulent behavior
-* Supports real-time risk scoring
-
----
-
-## 💼 Resume Highlights
-
-* Built an end-to-end behavioral anomaly detection system using ML and Deep Learning
-* Engineered behavioral and temporal features from interaction data
-* Developed real-time API using FastAPI and deployed with Docker
-* Designed interactive dashboard for anomaly visualization
-* Applied statistical analysis and SHAP explainability
+```json
+{
+  "prediction": "Normal",
+  "anomaly_score": 0.0489,
+  "risk_level": "Low",
+  "risk_score": 19
+}
+```
 
 ---
 
-## 🔮 Future Improvements
+# 🐳 Docker Usage
 
-* Real-time streaming (Kafka)
-* Cloud deployment (AWS / Render)
-* Graph-based anomaly detection
-* Advanced sequence models (LSTM, Transformers)
+## Build Docker Image
 
----
-
-## 👨‍💻 Author
-
-**Rajesh Kumar**
+```bash
+docker build -t anomaly-app -f docker/Dockerfile .
+```
 
 ---
 
-## ⭐ If you found this useful, give it a star!
+## Run Container
+
+```bash
+docker run -p 8000:8000 anomaly-app
+```
+
+---
+
+# 🚀 Local Development
+
+## Clone Repository
+
+```bash
+git clone https://github.com/RajeshKumar3451/Anomaly-Detection-System.git
+cd Anomaly-Detection-System
+```
+
+---
+
+## Install Dependencies
+
+```bash
+pip install -r requirements-api.txt
+```
+
+---
+
+## Run API
+
+```bash
+uvicorn api.main:app --reload
+```
+
+---
+
+## Run Dashboard
+
+```bash
+streamlit run dashboard/app.py
+```
+
+---
+
+# 📂 Project Structure
+
+```text
+Behavioral-Anomaly-Detection/
+│
+├── api/
+│   └── main.py
+│
+├── dashboard/
+│   └── app.py
+│
+├── docker/
+│   └── Dockerfile
+│
+├── models/
+│   └── pipeline.pkl
+│
+├── src/
+│   ├── data/
+│   ├── features/
+│   └── models/
+│
+├── requirements-api.txt
+├── requirements-dashboard.txt
+└── README.md
+```
+
+---
+
+# 📈 Future Improvements
+
+- LSTM Autoencoder
+- Real-time WebSocket streaming
+- Kafka integration
+- JWT authentication
+- Database logging
+- MLflow monitoring
+- Drift detection
+- Kubernetes deployment
+
+---
+
+# 🏆 Key Achievements
+
+✅ Production ML deployment  
+✅ Real-time fraud intelligence  
+✅ Dockerized AI infrastructure  
+✅ Cloud-hosted inference API  
+✅ Interactive security dashboard  
+✅ End-to-end MLOps workflow  
+
+---
+
+# 📬 Contact
+
+## Author
+Rajesh Kumar
+
+## GitHub
+https://github.com/RajeshKumar3451/Anomaly-Detection-System
+
+---
+
+# ⭐ If you found this project useful
+
+Give it a star on GitHub ⭐
