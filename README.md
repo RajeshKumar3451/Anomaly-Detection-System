@@ -60,6 +60,10 @@ to generate:
                    │ Fraud Classification │
                    └──────────────────────┘
 ```
+---
+
+# 🧠 High-Level ML System Architecture
+
 ```mermaid
 flowchart TD
 
