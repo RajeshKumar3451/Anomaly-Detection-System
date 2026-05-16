@@ -60,7 +60,39 @@ to generate:
                    │ Fraud Classification │
                    └──────────────────────┘
 ```
+```mermaid
+flowchart TD
 
+    A[User Behavioral Data] --> B[Data Preprocessing]
+
+    B --> C[Feature Engineering]
+
+    C --> D[ML Pipeline]
+    
+    D --> E[Isolation Forest Model]
+
+    E --> F[Anomaly Scoring Engine]
+
+    F --> G[Risk Classification]
+
+    G --> H[FastAPI Inference API]
+
+    H --> I[Streamlit Fraud Dashboard]
+
+    H --> J[Swagger API Docs]
+
+    I --> K[Real-Time Monitoring]
+
+    subgraph Deployment
+        L[Docker Container]
+        M[Render Cloud Platform]
+    end
+
+    H --> L
+    I --> L
+
+    L --> M
+```
 ---
 
 # 🚀 Tech Stack
